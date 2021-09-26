@@ -91,8 +91,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              Expanded(
-                child: Column(
+               Column(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     [1, 2, 3],
                     [4, 5, 6],
@@ -100,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                     [-2, 0, -1],
                   ].map((row) {
                     return Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: row.map((item) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -113,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                     );
                   }).toList(),
                 ),
-              ),
+
             ],
           ),
         ),
@@ -122,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _handleClickButton(int num) {
-    print('hello $num');
+
     setState(() {
       if (num == -1) {
         if (input.length > 0) input = input.substring(0, input.length - 1);
