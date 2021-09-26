@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food/pages/login/home_page.dart';
 import 'package:flutter_food/pages/login/login_page.dart';
 
 void main() {
@@ -19,10 +20,19 @@ class MyApp extends StatelessWidget {
             bodyText2: TextStyle(fontSize: 14.0),
 
           )),
-      home: LoginPage(),
+      //home: LoginPage(),
+      routes: {
+        LoginPage.routeName: (context) => const LoginPage(),
+        HomePage.routeName: (context) => const HomePage(),
+      },
+      initialRoute: LoginPage.routeName,
     );
   }
 }
+
+
+
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);

@@ -3,6 +3,7 @@ import 'package:flutter_food/pages/login/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
+  static const routeName = '/login';
   const LoginPage({Key? key}) : super(key: key);
 
   @override
@@ -90,26 +91,28 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              Column(
-                children: [
-                  [1, 2, 3],
-                  [4, 5, 6],
-                  [7, 8, 9],
-                  [-2, 0, -1],
-                ].map((row) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: row.map((item) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: LoginButton(
-                          number: item,
-                          onClick: _handleClickButton,
-                        ),
-                      );
-                    }).toList(),
-                  );
-                }).toList(),
+              Expanded(
+                child: Column(
+                  children: [
+                    [1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9],
+                    [-2, 0, -1],
+                  ].map((row) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: row.map((item) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: LoginButton(
+                            number: item,
+                            onClick: _handleClickButton,
+                          ),
+                        );
+                      }).toList(),
+                    );
+                  }).toList(),
+                ),
               ),
             ],
           ),
@@ -129,10 +132,11 @@ class _LoginPageState extends State<LoginPage> {
 
       if (input.length == 6) {
         if (input == '123456') {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => HomePage()),
-          );
+          // Navigator.pushReplacement(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => HomePage()),
+          // );
+          Navigator.pushReplacementNamed(context, HomePage.routeName);
         } else {
           _showMaterialDialog();
           input = '';
