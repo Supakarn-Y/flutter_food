@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food/pages/hompage/foodPage.dart';
+import 'package:flutter_food/pages/hompage/profile.dart';
 import 'package:flutter_food/pages/login/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,7 +14,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var _subPageIndex = 0;
-  var _selectdButtomNavIndex  = 0 ;
+
+  var _selectedpage = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -45,41 +48,19 @@ class _HomePageState extends State<HomePage> {
                   ],
                 )),
             ListTile(
-                title: _buildDreawerItem(Icon(Icons.home), 'HOME'),
-                onTap: () => _showSubPage(0)),
+                title: _buildDreawerItem(Icon(Icons.home), 'Food'),
+                onTap: () => _showSubPage(0)
+            ),
             ListTile(
-                title: _buildDreawerItem(Icon(Icons.person), 'PAGE 1'),
+                title: _buildDreawerItem(Icon(Icons.person), 'Profile'),
                 onTap: () => _showSubPage(1)
                 //Navigator.of(context).pushNamed(LoginPage.routeName);
                 ),
-            ListTile(
-                title: _buildDreawerItem(Icon(Icons.file_copy), 'PAGE 2'),
-                onTap: () => _showSubPage(2)),
-            ListTile(
-                title: _buildDreawerItem(Icon(Icons.settings), 'Setting'),
-                onTap: () => _showSubPage(3)),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label : 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label : 'Setting',
-          )
-        ],
-        currentIndex: _selectdButtomNavIndex,
-        onTap: (index) {
-          setState(() {
-            _selectdButtomNavIndex = index;
-          });
-        },
-      ),
-      body: Container(color: Colors.teal.shade200, child: _buildSubPage()),
+
+      body: Container( child: _buildSubPage()),
     );
   }
 
@@ -94,31 +75,11 @@ class _HomePageState extends State<HomePage> {
   Widget _buildSubPage() {
     switch (_subPageIndex) {
       case 0:
-        return Center(
-          child: Text(
-            'THIS IS A HOMEPAGE',
-            style: GoogleFonts.roboto(fontSize: 35.0),
-            textAlign: TextAlign.center,
-          ),
-        );
+        return foodPage();
 
       case 1:
-        return Center(
-          child: Text(
-            'PAGE 1',
-            style: GoogleFonts.roboto(fontSize: 35.0),
-            textAlign: TextAlign.center,
-          ),
-        );
+        return  ProfilePage();
 
-      case 2:
-        return Center(
-          child: Text(
-            'PAGE 2',
-            style: GoogleFonts.roboto(fontSize: 35.0),
-            textAlign: TextAlign.center,
-          ),
-        );
 
       default:
         return Center(
