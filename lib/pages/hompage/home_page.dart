@@ -32,35 +32,55 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-                decoration: BoxDecoration(color: Colors.red),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    // ไล่เฉดจากมุมบนซ้ายไปมุมล่างขวาของ Container
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    // ไล่เฉดจากสีแดงไปสีน้ำเงิน
+                    colors: [
+                      Colors.black12,
+                      Colors.teal.shade700,
+                    ],
+                  ),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(
-                      Icons.person,
-                      size: 60.0,
-                      color: Colors.white,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(35.0),
+                          child: Container(
+                            width: 70.0,
+                            height: 70.0,
+                            child: Image.asset('assets/images/profile.jpg'),
+                          )),
                     ),
                     Text(
                       'Suapakarn Yoojongdee',
-                      style: TextStyle(color: Colors.white, fontSize: 20.0),
-                    )
+                      style: GoogleFonts.roboto(
+                          color: Colors.white, fontSize: 20.0),
+                    ),
+                    Text(
+                      'Yoojongdee_s@silpakorn.edu',
+                      style: GoogleFonts.roboto(
+                          color: Colors.white70, fontSize: 13.0),
+                    ),
                   ],
                 )),
             ListTile(
-                title: _buildDreawerItem(Icon(Icons.home), 'Food'),
-                onTap: () => _showSubPage(0)
-            ),
+                title: _buildDreawerItem(Icon(Icons.fastfood,color: Colors.teal,), 'Food'),
+                onTap: () => _showSubPage(0)),
             ListTile(
-                title: _buildDreawerItem(Icon(Icons.person), 'Profile'),
+                title: _buildDreawerItem(Icon(Icons.person,color: Colors.teal,), 'Profile'),
                 onTap: () => _showSubPage(1)
                 //Navigator.of(context).pushNamed(LoginPage.routeName);
                 ),
           ],
         ),
       ),
-
-      body: Container( child: _buildSubPage()),
+      body: Container(child: _buildSubPage()),
     );
   }
 
@@ -78,8 +98,7 @@ class _HomePageState extends State<HomePage> {
         return foodPage();
 
       case 1:
-        return  ProfilePage();
-
+        return ProfilePage();
 
       default:
         return Center(
@@ -90,7 +109,6 @@ class _HomePageState extends State<HomePage> {
           ),
         );
     }
-    ;
   }
 
   Row _buildDreawerItem(Widget icon, String title) {
@@ -100,7 +118,7 @@ class _HomePageState extends State<HomePage> {
         SizedBox(
           width: 8.0,
         ),
-        Text('$title'),
+        Text('$title',style: GoogleFonts.roboto(fontSize: 20.0),),
       ],
     );
   }
