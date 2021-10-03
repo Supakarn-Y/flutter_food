@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food/pages/hompage/food%20detail%20page.dart';
 import 'package:flutter_food/pages/hompage/home_page.dart';
 import 'package:flutter_food/pages/hompage/profile.dart';
 import 'package:flutter_food/pages/login/login_page.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         LoginPage.routeName: (context) => const LoginPage(),
         HomePage.routeName: (context) => const HomePage(),
         ProfilePage.routeName: (context) => const ProfilePage(),
+        foodDetailPage.routeName: (context) => const foodDetailPage(),
       },
       initialRoute: LoginPage.routeName,
     );

@@ -41,12 +41,12 @@ class _foodPageState extends State<foodPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.menu_book,color: Colors.teal,),
+            icon: _selectdButtomNavIndex == 0 ? Icon(Icons.menu_book,color: Colors.teal,) : Icon(Icons.menu_book,color: Colors.grey,),
             label : 'Menu',
 
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart,color: Colors.teal,),
+            icon: _selectdButtomNavIndex == 1 ? Icon(Icons.shopping_cart,color: Colors.teal,): Icon(Icons.shopping_cart,color: Colors.grey,),
             label : 'Your Order',
           )
         ],
@@ -58,7 +58,7 @@ class _foodPageState extends State<foodPage> {
           });
         },
 
-      )  ,
+      ),
       body: Container(
         child: Center(
           child:  _buildSubPage(),
