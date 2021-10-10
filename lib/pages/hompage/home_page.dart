@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_food/pages/hompage/foodPage.dart';
+import 'package:flutter_food/pages/food/foodPage.dart';
 import 'package:flutter_food/pages/hompage/profile.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,7 +24,12 @@ class _HomePageState extends State<HomePage> {
           style: GoogleFonts.roboto(),
         ),
         backgroundColor: Colors.teal,
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.refresh)),
+        ],
       ),
+
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -120,4 +125,6 @@ class _HomePageState extends State<HomePage> {
       ],
     );
   }
+
+
 }

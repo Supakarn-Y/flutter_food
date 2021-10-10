@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_food/model/food_item.dart';
-import 'package:flutter_food/pages/hompage/food_menu.dart';
+import 'package:flutter_food/pages/food/food_menu.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class foodDetailPage extends StatefulWidget {

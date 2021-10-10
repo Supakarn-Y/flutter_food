@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food/model/food_item.dart';
-import 'package:flutter_food/pages/hompage/food%20detail%20page.dart';
+import 'package:flutter_food/pages/food/food%20detail%20page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FoodListPage extends StatefulWidget {
